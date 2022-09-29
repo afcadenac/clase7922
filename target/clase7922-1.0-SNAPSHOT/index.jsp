@@ -16,7 +16,7 @@
         
         <h1>Andres Felipe Cadena Cadena - 20192578035</h1>
         <h1>Jonathan cabrera Rodriguez - 20201578117</h1>
-        <h1>ramas con git</h1>
+        <h1>ramas con git2</h1>
         
         <a href="Control">verificar response </a>
         
