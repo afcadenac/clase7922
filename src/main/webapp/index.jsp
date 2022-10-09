@@ -18,9 +18,9 @@
         <h1>Jonathan cabrera Rodriguez - 20201578117</h1>
         <h1>ramas con git2</h1>
         
-        <a href="Control">verificar response </a>
+        <a href="Controlador">verificar response </a>
         
-        <form action="Control" method="get">
+        <form action="Controlador" method="get">
             <label>nombres</label>
             <input type="text" name="txt_nombres" required/>
             
