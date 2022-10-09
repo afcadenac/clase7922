@@ -10,25 +10,58 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ejemplo</title>
+        <link rel="stylesheet" href="estilo.css">
     </head>
     <body>
-        <h1>Hola mundo web</h1>
-        
-        <h1>Andres Felipe Cadena Cadena - 20192578035</h1>
-        <h1>Jonathan cabrera Rodriguez - 20201578117</h1>
-        <h1>ramas con git2</h1>
-        
-        <a href="Controlador">verificar response </a>
-        
-        <form action="Controlador" method="get">
-            <label>nombres</label>
-            <input type="text" name="txt_nombres" required/>
-            
-            <label>apellido</label>
-            <input type="text" name="txt_apellidos" required/>
-            
-            <input type="submit" value="registrar" name="btn_registrar"/>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/VdGzPZ31ts8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+        <form action="Controlador" method="POST">
+            <div id="login">
+                <div id="ingreso">
+                    <img src="imagenes/user.png" alt="130" width="130"/>
+                    <br>
+                    <br>
+                    <label>Usuario</label>
+                    <input type="email" />
+                    <br>
+                    <br>
+                    <label>Contraseña</label>
+                    <input type="password" />
+                    <br>
+                    <br>
+                    <input type="submit" name="boton"  value="Ingresar"/>
+                </div>
+
+
+                <div id="nombres">
+                    <label>nombres</label>
+                    <input type="text" name="txt_nombres" />
+
+                    <br>
+
+                    <label>apellido</label>
+                    <input type="text" name="txt_apellidos" />
+
+                    <br>
+
+                    <input type="submit" value="registrar" name="boton"/>
+
+                    <br>
+
+                    <div>
+                        <h5>Hola mundo web</h5>
+
+                        <h5>Andres Felipe Cadena Cadena - 20192578035</h5>
+                        <h5>Jonathan cabrera Rodriguez - 20201578117</h5>
+                        <h5>ramas con git2</h5>
+
+                        <a href="Controlador">verificar response </a>
+                    </div>
+                </div>
+
+
+            </div>
         </form>
     </body>
 </html>

@@ -34,7 +34,7 @@ public class Controlador extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Controlador</title>");            
+            out.println("<title>Servlet Controlador</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
@@ -56,23 +56,7 @@ public class Controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
-        String n=request.getParameter("txt_nombres");
-        String a=request.getParameter("txt_apellidos");
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Control</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>el domicilio llego oli: "+n+" "+a+"</h1>");
-            out.println("<h1>respuesta desde el control " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+
     }
 
     /**
@@ -86,7 +70,26 @@ public class Controlador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String b = request.getParameter("boton");
+        if (b.equals("registrar")) {
+            String n = request.getParameter("txt_nombres");
+            String a = request.getParameter("txt_apellidos");
+            response.setContentType("text/html;charset=UTF-8");
+            try ( PrintWriter out = response.getWriter()) {
+                /* TODO output your page here. You may use following sample code. */
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet Control</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>el domicilio llego oli: " + n + " " + a + "</h1>");
+                out.println("<h1>respuesta desde el control" + request.getContextPath() + "</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
+        }
     }
 
     /**
