@@ -6,10 +6,14 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
 /**
  *
@@ -26,6 +30,9 @@ public class Controlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    UsuarioDAO ud=new UsuarioDAO();
+            
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -56,6 +63,23 @@ public class Controlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+
+        String n = request.getParameter("txt_nombres");
+        String a = request.getParameter("txt_apellidos");
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Control</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>el domicilio llego oli: " + n + " " + a + "</h1>");
+            out.println("<h1>respuesta desde el control" + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
 
     }
 
@@ -88,6 +112,58 @@ public class Controlador extends HttpServlet {
                 out.println("<h1>respuesta desde el control" + request.getContextPath() + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
+            }
+        }
+        
+        if (b.equals("crear cuenta")) {
+            request.getRequestDispatcher("registro.jsp").forward(request, response);
+        }
+        
+        if (b.equals("volver al inicio")) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+        
+        if(b.equals("registrarse")){
+            String ps1=request.getParameter("txtContrasena1");
+            String ps2=request.getParameter("txtContrasena2");
+            if(ps1.equals(ps2)){
+                String nom=request.getParameter("txtNombre");
+                String tel=request.getParameter("txtTelefono");
+                String cor=request.getParameter("txtCorreo");
+                Usuario u=new Usuario(nom, tel, cor, ps1.toString());
+                ud.nuevouser(u);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }else{
+                System.out.println("no son iguales");
+                request.getRequestDispatcher("registro.jsp").forward(request, response);
+            }
+        }
+        
+        if(b.equals("Ingresar")){
+            ArrayList<Usuario> lista=ud.traerListaUsers();
+            Usuario u=null;
+            String correo=request.getParameter("txtEmail");
+            String pas=request.getParameter("txtPass").toString();
+            for(int i=0 ; i<lista.size(); i++){
+                if(lista.get(i).getCorreo().equals(correo)){
+                    u=new Usuario();
+                    u.setId(lista.get(i).getId());
+                    u.setNombre(lista.get(i).getNombre());
+                    u.setTelefono(lista.get(i).getTelefono());
+                    u.setCorreo(lista.get(i).getTelefono());
+                    u.setContrasena(lista.get(i).getContrasena());
+                    break;
+                }
+            }
+            if(u!=null){
+                if(u.getContrasena().equals(pas)){
+                    request.getRequestDispatcher("principal.jsp").forward(request, response);
+                }else{
+                    System.out.println("Su contraseña es incorrecta");
+                }
+            }else{
+                System.out.println("El correo ingresado no existe");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }
     }

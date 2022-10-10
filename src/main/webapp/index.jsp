@@ -12,7 +12,7 @@
         <title>ejemplo</title>
         <link rel="stylesheet" href="estilo.css">
     </head>
-    <body>
+    <body id="index">
 
 
 
@@ -23,14 +23,15 @@
                     <br>
                     <br>
                     <label>Usuario</label>
-                    <input type="email" />
+                    <input type="email" name="txtEmail"/>
                     <br>
                     <br>
                     <label>Contraseña</label>
-                    <input type="password" />
+                    <input type="password" name="txtPass" />
                     <br>
                     <br>
                     <input type="submit" name="boton"  value="Ingresar"/>
+                    <input type="submit" name="boton"  value="crear cuenta"/>
                 </div>
 
 
