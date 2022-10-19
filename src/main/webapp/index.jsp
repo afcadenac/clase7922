@@ -12,7 +12,7 @@
         <title>ejemplo</title>
         <link rel="stylesheet" href="estilo.css">
     </head>
-    <body id="index">
+    <body>
 
 
 
