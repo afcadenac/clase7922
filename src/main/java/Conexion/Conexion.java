@@ -41,14 +41,14 @@ public class Conexion {
     }
 
     public void cerrarConexion() {
-        if (con != null) {
+        /*if (con != null) {
             try {
                 con.close();
             } catch (SQLException ex) {
                 System.out.println("Error al cerrar la conexion " + ex.getMessage());
             }
-        }
-        //intance=null;
+        }*/
+        intance=null;
     }
 }
 
