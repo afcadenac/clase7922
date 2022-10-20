@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author user
  */
 public class UsuarioDAO {
-    Conexion cn=new Conexion();
+    Conexion cn=Conexion.getIntance();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
@@ -27,7 +27,7 @@ public class UsuarioDAO {
     }
     
     public void nuevouser(Usuario u){
-        con=cn.Conexion();
+        con=cn.getCnn();
         String sql="insert into usuario(nombre,telefono,correo,contrasena) values (?,?,?,?);";
         try {
             ps=con.prepareStatement(sql);
@@ -38,11 +38,14 @@ public class UsuarioDAO {
             ps.execute();
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            cn.cerrarConexion();
         }
+        
     }
     
     public ArrayList<Usuario> traerListaUsers(){
-        con=cn.Conexion();
+        con=cn.getCnn();
         ArrayList<Usuario> lista=new ArrayList();
         try {
             ps=con.prepareStatement("select * from usuario;");
@@ -52,6 +55,8 @@ public class UsuarioDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            cn.cerrarConexion();
         }
         return lista;
     }

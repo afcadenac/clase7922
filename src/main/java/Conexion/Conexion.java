@@ -13,17 +13,41 @@ import java.sql.SQLException;
  * @author user
  */
 public class Conexion {
+
     Connection con;
-    private String url="jdbc:postgresql://localhost:5432/bd_taller";
-    private String user="postgres";
-    private String pss="12345";
-    public Connection Conexion(){
+    private static Conexion intance = null;
+    private String url = "jdbc:postgresql://localhost:5432/bd_taller";
+    private String user = "postgres";
+    private String pss = "12345";
+
+    private Conexion() {
         try {
             Class.forName("org.postgresql.Driver");
-            con=(Connection) DriverManager.getConnection(url, user, pss);
+            con = (Connection) DriverManager.getConnection(url, user, pss);
         } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("Error al conectar la base de datos: "+ex.getMessage());;
+            System.out.println("Error al conectar la base de datos: " + ex.getMessage());;
         }
+    }
+
+    public static Conexion getIntance() {
+        if (intance == null) {
+            intance = new Conexion();
+        }
+        return intance;
+    }
+
+    public Connection getCnn() {
         return con;
+    }
+
+    public void cerrarConexion() {
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println("Error al cerrar la conexion " + ex.getMessage());
+            }
+        }
+        //intance=null;
     }
 }
