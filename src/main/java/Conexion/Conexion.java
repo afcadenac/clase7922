@@ -16,7 +16,7 @@ public class Conexion {
 
     Connection con;
     private static Conexion intance = null;
-    private String url = "jdbc:postgresql://localhost:5432/bd_taller";
+    private String url = "jdbc:postgresql://localhost:5432/bd_cadena_cabrera";
     private String user = "postgres";
     private String pss = "12345";
 
@@ -51,3 +51,21 @@ public class Conexion {
         //intance=null;
     }
 }
+
+
+/*
+create database bd_cadena_cabrera;
+
+create table usuario
+(
+    id serial not null,
+    nombre varchar(30),
+    telefono varchar(10),
+    correo varchar(40) not null,
+    contrasena varchar(30) not null,
+    primary key(id)
+);
+
+insert into usuario(nombre,telefono,correo,contrasena) values ('andres','1254785625','andres@gmail','123');
+
+*/
