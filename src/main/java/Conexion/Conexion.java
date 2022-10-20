@@ -18,7 +18,7 @@ public class Conexion {
     private static Conexion intance = null;
     private String url = "jdbc:postgresql://localhost:5432/bd_cadena_cabrera";
     private String user = "postgres";
-    private String pss = "12345";
+    private String pss = "123456";
 
     private Conexion() {
         try {
