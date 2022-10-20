@@ -145,6 +145,7 @@ public class Controlador extends HttpServlet {
             String correo=request.getParameter("txtEmail");
             String pas=request.getParameter("txtPass").toString();
             for(int i=0 ; i<lista.size(); i++){
+                System.out.println(lista.get(i).toString()+"texto dew");
                 if(lista.get(i).getCorreo().equals(correo)){
                     u=new Usuario();
                     u.setId(lista.get(i).getId());

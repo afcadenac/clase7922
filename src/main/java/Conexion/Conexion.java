@@ -67,5 +67,6 @@ create table usuario
 );
 
 insert into usuario(nombre,telefono,correo,contrasena) values ('andres','1254785625','andres@gmail','123');
+insert into usuario(nombre,telefono,correo,contrasena) values ('jonathan','5487596715','jonathan@gmail','123');
 
 */
