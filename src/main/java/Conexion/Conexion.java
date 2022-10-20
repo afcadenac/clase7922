@@ -16,7 +16,7 @@ public class Conexion {
     Connection con;
     private String url="jdbc:postgresql://localhost:5432/bd_taller";
     private String user="postgres";
-    private String pss="123456";
+    private String pss="12345";
     public Connection Conexion(){
         try {
             Class.forName("org.postgresql.Driver");
