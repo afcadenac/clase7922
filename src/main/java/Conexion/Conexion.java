@@ -16,14 +16,18 @@ public class Conexion {
 
     Connection con;
     private static Conexion intance = null;
-    private String url = "jdbc:postgresql://localhost:5432/bd_cadena_cabrera";
+    /*private String url = "jdbc:postgresql://localhost:5432/bd_cadena_cabrera";
     private String user = "postgres";
     private String pss = "123456";
-
+    */
+    private String url = "jdbc:postgresql://ec2-54-91-223-99.compute-1.amazonaws.com:5432/d3ve1hcs6rb7ok";
+    private String user = "ysazkulwautnae";
+    private String pss = "e8fe779358dc6d95328ccac91b9a9f3a2be011750ec715fb0d770389005baa60";
     private Conexion() {
         try {
             Class.forName("org.postgresql.Driver");
             con = (Connection) DriverManager.getConnection(url, user, pss);
+            
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("Error al conectar la base de datos: " + ex.getMessage());;
         }
