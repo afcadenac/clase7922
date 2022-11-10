@@ -10,19 +10,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 #principal{
     background: url(imagenes/fprincipal.png);
     background-size: 100%;
+    
+ 
 }
 
 
 #user{
     position: absolute;
-    
+
     width: 30%;
     height: 30%;
-    
+
     left: 35%;
     top: 35%;
-    
+
     text-align: center;
-    
+
     background: brown;
 }
+
+#barra{
+    background: brown;
+
+    
+    position: absolute;
+    
+    width: 100%;
+    height: 5%;
+
+    left: 0%;
+    top: 0%;
+
+
+
+}
+
+#lista{
+
+    position: absolute; /*(o relative, según tu diseño)*/
+    width: 50%;
+    height: 100%;
+
+    left: 0%;
+    top: 0%;
+    
+
+   
+}
+
+
+
+#lista a {
+    display: inline;
+   text-align: center;
+   margin: none;
+
+   color: white;
+   padding: 0px 7px 0px 7px;
+   
+   text-decoration: none;
+}
+
+#lista a:hover{
+   background-color: #333333;
+   color: yellow;
+}
+
